@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Item{% endblock %}
+
+{% block body %}
+    <h1>Item</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ item.id }}</td>
+            </tr>
+            <tr>
+                <th>Product</th>
+                <td>{{ item.product.name }} - {{ item.product.price /100 }}€</td>
+            </tr>
+            <tr>
+                <th>Commande</th>
+                <td>{{ item.commande.name }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ item.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ item.amount /100 }}</td>
+            </tr>
+            <tr>
+                <th>Tax Amount</th>
+                <td>{{ item.taxAmount /100 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_order_show', {'id': item.commande.id}) }}">back to list</a>
+
+{% endblock %}

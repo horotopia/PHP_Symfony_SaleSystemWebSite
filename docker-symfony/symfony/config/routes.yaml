@@ -1,0 +1,27 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+# the "app_lucky_number" route name is not important yet
+app_lucky_number:
+    path: /lucky/number/
+    controller: App\Controller\LuckyController::randNumber
+
+# the "app_lucky_number" route name is not important yet
+app_lucky_numbers:
+    path: /lucky/number/{id}
+    controller: App\Controller\LuckyController::number
+    requirements:
+        id: '[0-9]{0,5}'
+    methods: GET
+
+#[Route('/color', name: 'app_color')]
+color:
+    path: /color/{color}
+    controller: App\Controller\ColorController::index
+    requirements:
+        color: '[0-9a-fA-F]{6}'
